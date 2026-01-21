@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+<body>
+    <h1>Scaleway Serverless Hello World</h1>
+    <div id="output">Loading...</div>
+
+    <script>
+        const apiUrl = "${api_url}";
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('output').innerText = data.message + " (" + data.timestamp + ")";
+            })
+            .catch(err => {
+                document.getElementById('output').innerText = "Error: " + err;
+                console.error(err);
+            });
+    </script>
+</body>
+</html>
